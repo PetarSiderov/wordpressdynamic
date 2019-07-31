@@ -26,7 +26,7 @@ get_header();
                                 <span>$149 fixed price</span>
                             </div><!-- price -->
                             <div class="price">
-                                <h4>Launch Price <small>Coming soon!</small> </h4>
+                                <h4>Launch Price <small>Coming soon!!!!!</small> </h4>
                                 <span>$299</span>
                             </div><!-- price -->
                             <div class="price">
