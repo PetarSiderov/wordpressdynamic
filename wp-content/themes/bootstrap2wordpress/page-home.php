@@ -23,10 +23,10 @@ get_header();
                         <div id="price-timeline">
                             <div class="price active">
                                 <h4>Pre-Launch Price <small>Ends soon!</small> </h4>
-                                <span>$149</span>
+                                <span>$149 fixed price</span>
                             </div><!-- price -->
                             <div class="price">
-                                <h4>Launch Price <small>Coming soon!</small> </h4>
+                                <h4>Launch Price <small>Coming soon!!!!!</small> </h4>
                                 <span>$299</span>
                             </div><!-- price -->
                             <div class="price">
