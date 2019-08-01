@@ -30,6 +30,10 @@ $features_section_image = get_field('features_section_image');
 $features_section_title = get_field('features_section_title_');
 $features_section_body  = get_field('features_section_body');
 
+$project_features_title  = get_field('project_feature_title');
+$project_feature_body  = get_field('project_feature_body');
+
+
 get_header();
 ?>
 <br>
@@ -177,34 +181,23 @@ get_header();
         <div class="container">
 
             <div class="section-header">
-                <h2>Final Project Features</h1>
-                    <p class="lead">Throughout this entire course, you work towards building an incredibly beautifull
-                        website.
-                        Want to see the website <strong>you</strong> are going to build ? <em>This website your're using
-                            right now is the website you will hava
-                            built entirely by yourself, bu the end of this course
-                        </em>
+                <h2><?php echo $project_features_title ?></h1>
+                    <p class="lead">
+                        <?php echo $project_feature_body ?>
                     </p>
-
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/icon-design.png" alt="Design">
-                            <h3>Sexy &amp; Modern Design</h3>
-                            <p>You get to work with a modern, professional quality
-                                design &amp; layout</p>
-                        </div><!-- col -->
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/icon-code.png" alt="Code">
-                            <h3>Quality HTML5 &amp; CCS3</h3>
-                            <p>You get to work with a modern, professional quality
-                                design &amp; layout</p>
-                        </div><!-- col -->
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/icon-design.png" alt="Design">
-                            <h3>Easy to use CMS</h3>
-                            <p>You get to work with a modern, professional quality
-                                design &amp; layout</p>
-                        </div><!-- col -->
+                    <?php $loop = new WP_Query( array('post_type' => 'project_feature', 'orderby' => 'post_id', 'order' => 'ASC') ); ?>   
+                <!-- loop for showing pictures and titles have_posts() !! --> 
+                <?php while($loop -> have_posts() ) : $loop -> the_post() ?>  
+                    <div class="col-sm-4">
+                        <?php 
+                            if( has_post_thumbnail() ){
+                                the_post_thumbnail();
+                            }
+                        ?>
+                        <h3><?php the_title(); ?></h3>
+                        <p><?php the_content(); ?>  </p>
+                    </div>  
+                <?php endwhile; ?> <!--col-->
                     </div><!-- row -->
             </div><!-- section-header -->
 
