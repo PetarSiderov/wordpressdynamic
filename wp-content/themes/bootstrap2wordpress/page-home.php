@@ -3,6 +3,29 @@
     Template Name: Home Page
     
 */
+//custom fields 
+
+$prelaunch_price = get_post_meta( 9, 'prelaunch_price', true );
+$launch_price = get_post_meta( 9, 'launch_price', true );
+$final_price = get_post_meta( 9, 'final_price', true );
+$course_url = get_post_meta( 9, 'course_url', true);
+$button_text = get_post_meta( 9, 'button_text', true);
+$optin_text = get_post_meta( 9, 'optin_text', true);
+$button_optn_text = get_post_meta(9 , 'button_optn_text', true);
+
+//Advanced custom fields 
+$income_feature_image = get_field('income_feature_image');
+$income_section_title = get_field('income_section_title');
+$income_section_description = get_field('income_section_description');
+$reason_1 = get_field('reason_1_title');
+$reason_1_description = get_field('reason_1_description');
+$reason_2 = get_field('reason_2_title');
+$reason_2_description = get_field('reason_2_description');
+
+$who_feature_image = get_field('who_feature_image');
+$who_section_title = get_field('who_section_title');
+$who_section_body =  get_field('who_section_body');
+
 get_header();
 ?>
 
@@ -16,25 +39,24 @@ get_header();
                         <img src="<?php bloginfo('template_directory'); ?>/assets/img/logo-badge.png" alt="Bootstrap to WordPress" class="logo">
                     </div>
                     <!--col-->
-                    <h1>Bootstrap to WordPress</h1>
-                    <p class="lead">Earn An Extra $1k - $5k a Month by Learning To Code Your Own
-                        responsive &amp; Custom WordPress Websites with Bootstrap </p>
+                    <h1><?php bloginfo('name') ?></h1>
+                    <p class="lead"><?php bloginfo('description'); ?> </p>
                     <div class="col-sm-7 hero-text">
                         <div id="price-timeline">
                             <div class="price active">
                                 <h4>Pre-Launch Price <small>Ends soon!</small> </h4>
-                                <span>$149</span>
+                                <span><?php echo $prelaunch_price ?></span>
                             </div><!-- price -->
                             <div class="price">
                                 <h4>Launch Price <small>Coming soon!</small> </h4>
-                                <span>$299</span>
+                                <span><?php echo $launch_price ?></span>
                             </div><!-- price -->
                             <div class="price">
                                 <h4>Final Price<small>Coming soon!</small> </h4>
-                                <span>$399</span>
+                                <span><?php echo $final_price ?></span>
                             </div><!-- price -->
                         </div>
-                        <p><a class="btn btn-lg btn-danger" href="/" role="button">Enroll &raquo;</a></p>
+                        <p><a class="btn btn-lg btn-danger" href="<?php echo $course_url ?>" role="button"><?php echo $button_text ?> </a></p>
                     </div>
                     <!--col-->
                 </div>
@@ -48,14 +70,13 @@ get_header();
             <div class="row">
 
                 <div class="col-sm-8">
-                    <p class="lead"><strong>Subscribe to our mailing list. </strong>
-                        <strong>We'll send something special as a thank you</strong></p>
+                    <p class="lead"><?php echo $optin_text ?></p>
                 </div>
                 <!--col-->
 
                 <div class="col-sm-4">
                     <button class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                        Click here to subscribe
+                       <?php echo $button_optn_text ?>
                     </button>
                 </div>
 
@@ -69,28 +90,29 @@ get_header();
         <div class="container">
 
             <div class="section-header">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/img/icon-boost.png">
-                <h2>How You Can Boost Your Income</h2>
+
+            <!--- If feature exists -->
+                <?php if( !empty($income_feature_image)) : ?>
+                    <img src="<?php echo $income_feature_image['url']; ?>"
+                     alt="<?php echo $income_feature_image['alt']; ?>">
+                <?php endif; ?>
+                <h2><?php echo $income_section_title ?></h2>
+                <!-- <?php var_dump($income_section_title) ?>  - adding debbuger php --> 
             </div>
             <!--section-header-->
 
             <p class="lead">
-                Whether you&rsquo; re a freelance designer, entrepreneur, employee for a company, code hobbyist, or
-                looking
-                for a new career &mdash; this course gives you an immensely valuable skill that will enable you to
-                either:
+                <?php echo $income_section_description ?> 
             </p>
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>Make money on the side</h3>
-                    <p>So you can save up for that Hawaiian vacation
-                        you &rsquo; ve been wanting, help pay off your dept, your car, your mortgage,
-                        or simply just to have bonus cash laying around.
+                    <h3><?php echo $reason_1?></h3>
+                    <p><?php echo $reason_1_description ?>
                     </p>
                 </div><!-- col -->
                 <div class="col-sm-6">
-                    <h3>Create a full time income</h3>
-                    <p>WordPress developers have options. Many developers make a generous itn </p>
+                    <h3><?php echo $reason_2 ?></h3>
+                    <p><?php echo $reason_2_description ?></p>
                 </div><!-- col -->
             </div><!-- row -->
         </div>
@@ -101,33 +123,16 @@ get_header();
     <section id="who-benefits">
         <div class="container">
             <div class="section-header">
-                <img src="<?php bloginfo('template_directory'); ?>/assets/img/icon-pad.png" alt="Pad and pencil">
-                <h2>Who should take this course</h2>
+            <?php if( !empty($who_feature_image)) : ?>
+                <img src="<?php echo $who_feature_image['url']; ?>" alt="<?php echo $who_feature_image['alt']; ?>">
+            <?php endif; ?>
+                <h2><?php echo $who_section_title ?></h2>
             </div><!-- section header -->
 
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
-                    <h2>Graphic &amp; Web Designere</h2>
-                    <p>Graphic Designers are extremely talented, but ask them to code their <strong>designes nad they'll
-                            freeze up!</strong>
-                        Graphic Designers are extremely talented, but ask them to code their <strong>designes nad
-                            they'll freeze up!</strong>
-                        Graphic Designers are extremely talented, but ask them to code their <strong>designes nad
-                            they'll freeze up!</strong>
-                        Graphic Designers are extremely talented, but ask them to code their <strong>designes nad
-                            they'll freeze up!</strong>
-                    </p>
-                    <h2>Entrepreneur</h2>
-                    <p>Graphic Designers are extremely talented, but ask them to code their <strong>designes nad they'll
-                            freeze up!</strong>
-                        Graphic Designers are extremely talented, but ask them to code their <strong>designes nad
-                            they'll freeze up!</strong>
-                        Graphic Designers are extremely talented, but ask them to code their <strong>designes nad
-                            they'll freeze up!</strong>
-                    </p>
-                </div>
-                <!--col-->
-
+                    <?php echo $who_section_body ?>
+                </div><!--col-->
             </div><!-- row -->
         </div><!-- container -->
     </section><!-- who benefits -->
