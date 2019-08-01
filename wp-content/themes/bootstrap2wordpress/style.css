@@ -545,6 +545,10 @@ blockquote:before {
     display: block;
 }
 
+.navbar-fixed-top{
+    top: 32px;
+    
+}
 /* === Layout === */
 
 section {

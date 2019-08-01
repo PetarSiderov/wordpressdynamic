@@ -28,7 +28,8 @@ $who_section_body =  get_field('who_section_body');
 
 get_header();
 ?>
-
+<br>
+<br>
  <!--Hero-->
  <section id="hero" data-type="backgroud" data-speed="5">
         <article>
@@ -48,8 +49,13 @@ get_header();
                                 <span><?php echo $prelaunch_price ?></span>
                             </div><!-- price -->
                             <div class="price">
+<<<<<<< HEAD
                                 <h4>Launch Price <small>Coming soon!</small> </h4>
                                 <span><?php echo $launch_price ?></span>
+=======
+                                <h4>Launch Price <small>Coming soon!!!!!</small> </h4>
+                                <span>$299</span>
+>>>>>>> 63bf6a12cf4692858dea267dafd150c142d70e96
                             </div><!-- price -->
                             <div class="price">
                                 <h4>Final Price<small>Coming soon!</small> </h4>
