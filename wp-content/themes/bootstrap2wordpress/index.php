@@ -15,11 +15,11 @@
 get_header();
 ?>
 
-<section id="blogImg" class="feature-image feature-image-default-alt" data-type="background" data-speed="5">
-				<div class="container">
-					<h1 id="BlogH1" class="page-title text-center"><?php the_title(); ?></h1>
-				</div>
-			</section>
+	<section id="blogImg" class="feature-image feature-image-default-alt" data-type="background" data-speed="5">
+		<div class="container">
+			<h1 id="BlogH1" class="page-title text-center"><?php the_title(); ?></h1>
+		</div>
+	</section>
 	<div class="container">
 	<div class="row" id="primary">
 	<main id="content" class="col-md-9" role="main">
