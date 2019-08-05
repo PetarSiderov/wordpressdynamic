@@ -36,7 +36,6 @@ get_header();
             get_template_part('template-parts/content', 'videofeaturete');
             get_template_part('template-parts/content', 'instructor');
             get_template_part('template-parts/content', 'testimonials');
-            get_template_part('template-parts/content', 'signup');
             get_template_part('template-parts/content', 'subscribemodal');
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :

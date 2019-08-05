@@ -813,7 +813,7 @@ i.ci {
     font-size: 18px;
 }
 #ResourceImg{
-    background: url('../img/stuff-feature.jpg') 50% 0% repeat fixed;
+    background: url('/wp-content/themes/bootstrap2wordpress/assets/img/stuff-feature.jpg') 50% 0% repeat fixed;
     min-height: 20vh;
     padding: 40px 0;
     color: white;
@@ -829,7 +829,7 @@ i.ci {
 }
 
 #SourceImg{
-    background: url('../img/stuff-feature.jpg') 50% 0% repeat fixed;
+    background: url('/wp-content/themes/bootstrap2wordpress/assets/img/stuff-feature.jpg') 50% 0% repeat fixed;
     min-height: 20vh;
     padding: 40px 0;
     color: white;
