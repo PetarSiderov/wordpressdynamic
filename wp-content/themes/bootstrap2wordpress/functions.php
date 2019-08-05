@@ -47,6 +47,11 @@ if ( ! function_exists( 'bootstrap2wordpress_setup' ) ) :
 			'menu-1' => esc_html__( 'Primary', 'bootstrap2wordpress' ),
 		) );
 
+		function new_excerpt_more($more) {
+			global $post; 
+			return '.. <a class="moretag" href="'. get_permalink($post -> ID) .'"> continue reading &raquo;</a>';
+		}
+		add_filter('excerpt_more', 'new_excerpt_more');
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.

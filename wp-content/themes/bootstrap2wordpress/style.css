@@ -95,7 +95,10 @@ Blue Gray: #3e4249
 	float: left;
 	width: 50%;
 }
-
+.entry-header
+{
+    margin-left: 2vh;
+}
 .comment-navigation .nav-next,
 .posts-navigation .nav-next,
 .post-navigation .nav-next {

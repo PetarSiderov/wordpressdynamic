@@ -13,47 +13,45 @@
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h3 class="entry-title">', '</h3>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
-				<?php
-				bootstrap2wordpress_posted_on();
-				bootstrap2wordpress_posted_by();
-				?>
-			</div><!-- .entry-meta -->
+				<div class="post-details">
+                                <span class="glyphicon glyphicon-user"></span>
+                               		<?php the_author(); ?>
+                                <span class="glyphicon glyphicon-time"></span>
+                                	<time><?php the_date() ;?></time>
+                                <span class="glyphicon glyphicon-folder-open"></span>
+									<?php the_category(', '); ?>
+                                <span class="glyphicon glyphicon-tags"></span>
+									<?php the_tags('',', ',''); ?>
+                                <div class="post-comments-badge">
+                                    <a href=""><span class="glyphicon glyphicon-comment">
+
+                                    </span> <?php comments_number(0, 1, '%'); ?></a>
+								</div> <!-- post-comments-badge -->
+
+									 <?php 
+									 	edit_post_link( 'Edit', '<div><i class="fa fa-pencil"> </i>', '</div>' );
+									 ?>
+                            </div><!-- post detail --> 
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
+	<?php if( has_post_thumbnail() ) { // check for feature img} ?>
+			<div class="post-image">
+				<?php the_post_thumbnail() ?>
+			</div><!-- post-image -->
+	<?php }  ?>
+        <div class="post-excerpt">
+			<?php the_excerpt(); ?>
+		</div><!-- post-excerpt -->
+		</div>					
 	<?php bootstrap2wordpress_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'bootstrap2wordpress' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
-
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'bootstrap2wordpress' ),
-			'after'  => '</div>',
-		) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php bootstrap2wordpress_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
+	
 </article><!-- #post-<?php the_ID(); ?> -->
