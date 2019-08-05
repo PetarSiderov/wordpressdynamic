@@ -3,410 +3,47 @@
     Template Name: Home Page
     
 */
-//custom fields 
-
-$prelaunch_price = get_post_meta( 9, 'prelaunch_price', true );
-$launch_price = get_post_meta( 9, 'launch_price', true );
-$final_price = get_post_meta( 9, 'final_price', true );
-$course_url = get_post_meta( 9, 'course_url', true);
-$button_text = get_post_meta( 9, 'button_text', true);
-$optin_text = get_post_meta( 9, 'optin_text', true);
-$button_optn_text = get_post_meta(9 , 'button_optn_text', true);
-
-//Advanced custom fields 
-$income_feature_image       = get_field('income_feature_image');
-$income_section_title       = get_field('income_section_title');
-$income_section_description = get_field('income_section_description');
-$reason_1                   = get_field('reason_1_title');
-$reason_1_description       = get_field('reason_1_description');
-$reason_2                   = get_field('reason_2_title');
-$reason_2_description       = get_field('reason_2_description');
-
-$who_feature_image = get_field('who_feature_image');
-$who_section_title = get_field('who_section_title');
-$who_section_body  =  get_field('who_section_body');
-
-$features_section_image = get_field('features_section_image');
-$features_section_title = get_field('features_section_title_');
-$features_section_body  = get_field('features_section_body');
 
 $project_features_title  = get_field('project_feature_title');
-$project_feature_body  = get_field('project_feature_body');
+$project_feature_body    = get_field('project_feature_body');
 
+$instructor_section_title   = get_field('instructor_section_title');
+$instructor_name            = get_field('instructor_name');
+$bio_excerpt                = get_field('bio_excerpt');
+$full_bio                   = get_field('full_bio');
+$twitter_username           = get_field('twitter_username');
+$facebook_username          = get_field('facebook_username');
+$google_username            = get_field('google_plus_username_');
+$number_of_students         = get_field('number_of_students');
+$number_of_reviews_         = get_field('number_of_reviews_');
+$number_of_courses          = get_field('number_of_courses');
 
 get_header();
 ?>
 <br>
 <br>
  <!--Hero-->
- <section id="hero" data-type="backgroud" data-speed="5">
-        <article>
-            <div class="container clearfix">
-                <div class="row">
+ <?php
+		while ( have_posts() ) :
+			the_post();
 
-                    <div class="col-sm-5">
-                        <img src="<?php bloginfo('template_directory'); ?>/assets/img/logo-badge.png" alt="Bootstrap to WordPress" class="logo">
-                    </div>
-                    <!--col-->
-                    <h1><?php bloginfo('name') ?></h1>
-                    <p class="lead"><?php bloginfo('description'); ?> </p>
-                    <div class="col-sm-7 hero-text">
-                        <div id="price-timeline">
-                            <div class="price active">
-                                <h4>Pre-Launch Price <small>Ends soon!</small> </h4>
-                                <span><?php echo $prelaunch_price ?></span>
-                            </div><!-- price -->
-                            <div class="price">
-                                <h4>Launch Price <small>Coming soon!</small> </h4>
-                                <span><?php echo $launch_price ?></span>
-                            </div><!-- price -->
-                            <div class="price">
-                                <h4>Final Price<small>Coming soon!</small> </h4>
-                                <span><?php echo $final_price ?></span>
-                            </div><!-- price -->
-                        </div>
-                        <p><a class="btn btn-lg btn-danger" href="<?php echo $course_url ?>" role="button"><?php echo $button_text ?> </a></p>
-                    </div>
-                    <!--col-->
-                </div>
-            </div><!-- container -->
-        </article>
-    </section><!-- hero -->
-
-    <!--OPT IN SECTION-->
-    <section id="optin">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-sm-8">
-                    <p class="lead"><?php echo $optin_text ?></p>
-                </div>
-                <!--col-->
-
-                <div class="col-sm-4">
-                    <button class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                       <?php echo $button_optn_text ?>
-                    </button>
-                </div>
-
-            </div>
-        </div>
-        <!--Container-->
-    </section>
-
-    <!--BOOST YOUR INCOME -->
-    <section id="boost-income">
-        <div class="container">
-
-            <div class="section-header">
-
-            <!--- If feature exists -->
-                <?php if( !empty($income_feature_image)) : ?>  <!-- checking if img exist --> 
-                    <img src="<?php echo $income_feature_image['url']; ?>" 
-                     alt="<?php echo $income_feature_image['alt']; ?>">  <!-- array of images --> 
-                <?php endif; ?>
-                <h2><?php echo $income_section_title ?></h2> <!-- Title of this section --> 
-                <!-- <?php var_dump($income_section_title) ?>  - adding debbuger php --> 
-            </div>
-            <!--section-header-->
-
-            <p class="lead">
-                <?php echo $income_section_description ?> 
-            </p>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3><?php echo $reason_1?></h3>
-                    <p><?php echo $reason_1_description ?>
-                    </p>
-                </div><!-- col -->
-                <div class="col-sm-6">
-                    <h3><?php echo $reason_2 ?></h3>
-                    <p><?php echo $reason_2_description ?></p>
-                </div><!-- col -->
-            </div><!-- row -->
-        </div>
-        <!--Container-->
-    </section>
-
-    <!--WHO BENEFITS-->
-    <section id="who-benefits">
-        <div class="container">
-            <div class="section-header">
-            <?php if( !empty($who_feature_image)) : ?>
-                <img src="<?php echo $who_feature_image['url']; ?>" alt="<?php echo $who_feature_image['alt']; ?>">
-            <?php endif; ?>
-                <h2><?php echo $who_section_title ?></h2>
-            </div><!-- section header -->
-
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <?php echo $who_section_body ?>
-                </div><!--col-->
-            </div><!-- row -->
-        </div><!-- container -->
-    </section><!-- who benefits -->
-
-    <!--COURSE FEATURES-->
-    <section id="course-features">
-        <div class="container">
-            <div class="section-header">
-                <!-- section image header -->
-                <?php if ( !empty($features_section_image)) : ?>
-                    <img src="<?php echo $features_section_image['url']; ?>" alt="<?php echo $features_section_image['alt']; ?>">
-                <?php endif; ?>
-                <h2><?php echo $features_section_title; ?></h2>
-            </div>
-            <!-- if user adds a text -->
-            <?php if ( !empty($features_section_body)) : ?>
-                  <p class="lead"> <?php echo $features_section_body; ?> </p>
-            <?php endif; ?>
-
-            <!--section header -->
-            <div class="row">
-
-                <?php $loop = new WP_Query( array('post_type' => 'course_feature', 'orderby' => 'post_id', 'order' => 'ASC') ); ?>   
-                <!-- loop for showing pictures and titles have_posts() !! --> 
-                <?php while($loop -> have_posts() ) : $loop -> the_post() ?>  
-                    <div class="col-sm-2">
-                        <i class="<?php the_field('course_feature_icon'); ?>"></i>
-                        <h4><?php the_title(); ?></h4>
-                    </div>
-                <?php endwhile; ?> <!--col-->
-            </div><!-- row -->
-        </div><!-- course features -->
-    </section><!-- course fetures-->
-
-    <!--PROJECT FEATURES-->
-    <section id="project-feature">
-        <div class="container">
-
-            <div class="section-header">
-                <h2><?php echo $project_features_title ?></h1>
-                    <p class="lead">
-                        <?php echo $project_feature_body ?>
-                    </p>
-                    <?php $loop = new WP_Query( array('post_type' => 'project_feature', 'orderby' => 'post_id', 'order' => 'ASC') ); ?>   
-                <!-- loop for showing pictures and titles have_posts() !! --> 
-                <?php while($loop -> have_posts() ) : $loop -> the_post() ?>  
-                    <div class="col-sm-4">
-                        <?php 
-                            if( has_post_thumbnail() ){
-                                the_post_thumbnail();
-                            }
-                        ?>
-                        <h3><?php the_title(); ?></h3>
-                        <p><?php the_content(); ?>  </p>
-                    </div>  
-                <?php endwhile; ?> <!--col-->
-                    </div><!-- row -->
-            </div><!-- section-header -->
-
-        </div><!-- container -->
-    </section><!-- project-feature -->
-
-    <!--VIDEO FETURETTE-->
-    <section id="featurette">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h2>Watch the course introduction</h2>
-                    <iframe width="100%" height="415" src="https://www.youtube.com/embed/dPOO-NwLKHg" frameborder="0"
-                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div><!-- col -->
-            </div><!-- row-->
-        </div><!-- container -->
-    </section><!-- featurette-->
-
-    <!--Instructor-->
-    <section id="instructor">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                        <div class="col-lg-8">
-                            <h2>Your instructor <small>Brad Hussey</small></h2>
-                        </div><!-- end col-->
-                        <div class="col-lg-4">
-                            <a href="https://twitter.com/bradhussey" target="_blank" class="badge social twitter"><i
-                                    class="fa fa-twitter"></i></a>
-                            <a href="https://facebook.com/bradhussey" target="_blank" class="badge social facebook"><i
-                                    class="fa fa-facebook"></i></a>
-                            <a href="https://plus.google.com/+bradhussey" target="_blank" class="badge social gplus"><i
-                                    class="fa fa-google-plus"></i></a>
-                        </div><!-- end col-->
-                    </div><!-- row -->
-
-                    <p class="lead">
-                        A highly skilled professional, Brad Hussey is a
-                        passionate and experienced web designer, devloper,
-                        blogger and digital entrepreneur.
-                    </p>
-                    <p>
-                        A highly skilled professional, Brad Hussey is a
-                        passionate and experienced web designer, devloper,
-                        blogger and digital entrepreneur.
-                    </p>
-                    <p>
-                        A highly skilled professional, Brad Hussey is a
-                        passionate and experienced web designer, devloper,
-                        blogger and digital entrepreneur.
-                    </p>
-                    <p>
-                        A highly skilled professional, Brad Hussey is a
-                        passionate and experienced web designer, devloper,
-                        blogger and digital entrepreneur.
-                    </p>
-
-                    <hr>
-
-                    <h3 class="marginInstructor">The numbers <small> They Don't lie</small></h3>
-                    <br>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <div class="num">
-                                <div class="num-content">
-                                    41.000+<span> students</span>
-                                </div>
-                            </div>
-                            <!--num-->
-                        </div><!-- end col-->
-
-                        <div class="col-xs-4">
-                            <div class="num">
-                                <div class="num-content">
-                                    568<span> reviews</span>
-                                </div>
-                            </div>
-                            <!--num-->
-                        </div><!-- end col-->
-
-                        <div class="col-xs-4">
-                            <div class="num">
-                                <div class="num-content">
-                                    8 <span>courses</span>
-                                </div>
-                            </div>
-                            <!--num-->
-                        </div><!-- end col-->
-
-                    </div><!-- row -->
-
-                </div><!-- col -->
-                <div class="col-md-4">
-                    <img src="<?php bloginfo('template_directory'); ?>/assets/img/brad-elvis.png" class="img-responsive" alt="Image">
-                </div>
-            </div><!-- row -->
-        </div><!-- container -->
-    </section><!-- instructor -->
-
-    <!--Testimonials-->
-    <section id="kudos">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2">
-                    <h2> What People are saying about Brad </h2>
-
-                    <!-- Testimonial -->
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/brennan.jpg" alt="Brennan">
-                        </div><!-- end col -->
-                        <div class="col-sm-8">
-                            <blockquote>
-                                These videos are well created, concise, fast paced, easy to follow, and just funny
-                                enough to keep you chuckling as you're slamming out lines of code.
-                                <cite>
-                                    &mdash; Brennan, graduate of all of Brad's courses
-                                </cite>
-                            </blockquote>
-                        </div><!-- end col -->
-                    </div><!-- row -->
-                    <br>
-                    <br>
-                    <!-- Testimonial -->
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/ben.png" alt="Ilustration of a man with a moustache">
-                        </div><!-- end col -->
-                        <div class="col-sm-8">
-                            <blockquote>
-                                These videos are well created, concise, fast paced, easy to follow, and just funny
-                                enough to keep you chuckling as you're slamming out lines of code.
-                                <cite>
-                                    &mdash; Brennan, graduate of all of Brad's courses
-                                </cite>
-                            </blockquote>
-                        </div><!-- end col -->
-                    </div><!-- row -->
-                    <br>
-                    <br>
-                    <!-- Testimonial -->
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/aj.png" alt="Ilustration of a man with a beard">
-                        </div><!-- end col -->
-                        <div class="col-sm-8">
-                            <blockquote>
-                                These videos are well created, concise, fast paced, easy to follow, and just funny
-                                enough to keep you chuckling as you're slamming out lines of code.
-                                <cite>
-                                    &mdash; Brennan, graduate of all of Brad's courses
-                                </cite>
-                            </blockquote>
-                        </div><!-- end col -->
-                    </div><!-- row -->
-                    <br>
-                    <br>
-                    <div class="row testimonial">
-                        <div class="col-sm-4">
-                            <img src="<?php bloginfo('template_directory'); ?>/assets/img/ernest.png" alt="Ilustration of a man with a goatee">
-                        </div><!-- end col -->
-                        <div class="col-sm-8">
-                            <blockquote>
-                                These videos are well created, concise, fast paced, easy to follow, and just funny
-                                enough to keep you chuckling as you're slamming out lines of code.
-                                <cite>
-                                    &mdash; Brennan, graduate of all of Brad's courses
-                                </cite>
-                            </blockquote>
-                        </div><!-- end col -->
-                    </div><!-- row -->
-
-                </div><!-- end col -->
-            </div><!-- row -->
-        </div>
-        <!--container-->
-    </section><!-- kudos -->
-
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="myModalLabel"><i>Subscribe to our mailing list</h4>
-                </div> <!-- modal-header -->
-                <div class="modal-body">
-                    <p>Simply enter your name and email! As a thank you for joining us,
-                    we're going to give you our best-selling courses, <i>for free!</i></p>
-                    <form class="form-inline">
-                        <input type="text"id="usr" placeholder="Your first name"class="form-control">
-                        <input class="form-control" placeholder="and your email" type="text"  id="pwd">
-                        <button type="button" class="btn btn-danger">Subsciribe</button>
-                    </form>
-                    <hr>
-                    <p>
-                        By providing your email consent to receiving occasional promotional emails & newsletters.
-                        No Spam, Just good stuff. We respect your privacy & you may unsubscribe at any time.
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+            get_template_part( 'template-parts/content', 'hero' );
+            get_template_part('template-parts/content', 'opt' );
+            get_template_part('template-parts/content', 'boostyourincome' );
+            get_template_part('template-parts/content', 'benefits' );
+            get_template_part('template-parts/content', 'coursefeaturete');
+            get_template_part('template-parts/content', 'projectfeaturete');
+            get_template_part('template-parts/content', 'videofeaturete');
+            get_template_part('template-parts/content', 'instructor');
+            get_template_part('template-parts/content', 'testimonials');
+            get_template_part('template-parts/content', 'signup');
+            get_template_part('template-parts/content', 'subscribemodal');
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+		endwhile; // End of the loop.
+		?>
 
 <?php
 
