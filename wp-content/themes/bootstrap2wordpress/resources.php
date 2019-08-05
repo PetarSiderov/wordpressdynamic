@@ -35,7 +35,7 @@ $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id ( $post->ID ) );
             <p class="resurce-p"> 
 
             <?php while( have_posts() ) : the_post();  ?>
-                    <?php the_content(); ?>
+                <?php the_content(); ?>
              <?php endwhile; //end of the loop  ?>
             </p>
             <?php $loop = new WP_Query(array('post_type'=> 'resource', 'order_by' => 'post_id', 'order'=> 'ASC')); ?>
