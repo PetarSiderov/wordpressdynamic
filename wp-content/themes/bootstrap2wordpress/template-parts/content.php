@@ -17,10 +17,12 @@
 		else :
 			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		endif;
-
+		?>
+<?php 
 		if ( 'post' === get_post_type() ) :
+		
 			?>
-				<div class="post-details">
+	<div class="post-details">
                                 <span class="glyphicon glyphicon-user"></span>
                                		<?php the_author(); ?>
                                 <span class="glyphicon glyphicon-time"></span>
@@ -31,12 +33,11 @@
 									<?php the_tags('',', ',''); ?>
                                 <div class="post-comments-badge">
                                     <a href=""><span class="glyphicon glyphicon-comment">
-
                                     </span> <?php comments_number(0, 1, '%'); ?></a>
 								</div> <!-- post-comments-badge -->
 
 									 <?php 
-									 	edit_post_link( 'Edit', '<div><i class="fa fa-pencil"> </i>', '</div>' );
+									 	edit_post_link( 'Edit', '<i class="fa fa-pencil"> </i> ', '' );
 									 ?>
                             </div><!-- post detail --> 
 		<?php endif; ?>
@@ -49,9 +50,5 @@
 	<?php }  ?>
         <div class="post-excerpt">
 			<?php the_excerpt(); ?>
-		</div><!-- post-excerpt -->
-		</div>					
-	<?php bootstrap2wordpress_post_thumbnail(); ?>
-
-	
+		</div><!-- post-excerpt -->					
 </article><!-- #post-<?php the_ID(); ?> -->

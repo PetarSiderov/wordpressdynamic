@@ -743,9 +743,10 @@ i.ci {
     font-size: 12px;
     width: calc(100%-5px);
 }
-.post-image{
+.post-image img{
     padding: 0.5vh;
     height: auto;
+
 }
 .glyphicon{
     padding-left: 10px;
