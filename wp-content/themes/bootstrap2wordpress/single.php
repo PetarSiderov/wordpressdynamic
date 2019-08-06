@@ -14,13 +14,20 @@ get_header();
             <h1 id="BlogH1" class="page-title text-center"><?php the_title(); ?></h1>
         </div>
     </section>
-	
+
+
+
 <div class="container">
 	<div class="row" id="primary">
 		<main id="content" class="col-md-9" role="main">
 			<div id="primary" class="content-area">
 				<main id="main" class="col-md-12" >
 				
+			
+				<div class="post-image">
+					<?php the_post_thumbnail() ?>
+				</div>
+			
 				<div class="col-md-12" style="background: white"> 
 					<a href="<?php get_permalink(); ?>"><h3><?php the_title(); ?> </h3></a>
 						<div class="post-details">
@@ -42,6 +49,7 @@ get_header();
 					<hr>
 					</div><!-- post detail --> 
 					<br>
+					
 					<?php while ( have_posts())  
 				
 						the_post();

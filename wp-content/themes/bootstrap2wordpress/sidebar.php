@@ -60,10 +60,15 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
                         <p><?php _e( 'There no posts to display.' ); ?></p>
                     <?php endif; ?> 
                 </div>   
-            <!-- listing all categories dinamicly -->             
+            <!-- listing all categories dinamicly --> 
+            <div class='widget'>    
+            <h4> Categories </h4>
               <?php  $categories = get_categories();
-                foreach($categories as $category) {
-                    echo '<div class="widget"><h4>Categories</h4><hr><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></div>';
-                } 
+                foreach($categories as $category) { ?>
+                    <p>
+             <?php       echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>'; ?>
+                    </p>
+            <?php    } 
                ?>
+            </div>
 </main><!-- #secondary -->
