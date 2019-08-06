@@ -42,8 +42,12 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
                                     Reference List. It should include the details of all your in-text citations, arranged alphabetically
                                     A-Z by author surname.
                         </p>
+                      
                     </div>
-
+                <div class="widget">
+                    <?php get_search_form(); ?>
+                </div>
+                   
                 <?php
                 // wp-query to get all published posts without pagination
                 $allPostsWPQuery = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>

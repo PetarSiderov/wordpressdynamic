@@ -810,6 +810,50 @@ i.ci {
 .submit:hover{
     background-color: #e7e7e7;
 }
+.search-submit {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 6px 67px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+.search-submit:hover{
+    background-color: #e7e7e7;
+}
+.entry-footer {
+    background: #F8F8F6;
+    color: black;
+    
+}
+.entry-footer span a{
+    color: black;
+}
+.entry-footer span a:hover {
+    text-decoration: none;
+    color: #c9302c;
+
+}
+.attachment-post-thumbnail{
+    /* height: auto; */
+    height: auto;
+}
+.search-field{
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    border-radius: 5px 5px 5px 5px;
+    outline: none;
+    color: #9DBFAF;
+}
 
 #comments footer{
     background: none;
