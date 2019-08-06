@@ -440,6 +440,9 @@ button, input, .btn, a.btn {
     text-rendering: optimizeLegibility;
     color: white;
 }
+.comment-list{
+
+}
 .btn-danger{
     background-color: #dd5638;
     border-collapse: #d95131;
@@ -703,6 +706,7 @@ i.ci {
 
 #BlogH1{
     margin-top: 10vh;
+    color: #FFFFFF;
 }
 #primary{
     margin-top: 3vh;
@@ -758,8 +762,8 @@ i.ci {
     height: 70px;
     width: 70px;
     position: absolute;
-    top: 25px;
-    right: 20px;
+    top: -1vh;
+    left: -6vh;
     border: none;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
@@ -786,7 +790,37 @@ i.ci {
 .post-comments-badge span.glyphicon:hover{
     color: #79b055;
 }
+.submit{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+}
+.submit:hover{
+    background-color: #e7e7e7;
+}
 
+#comments footer{
+    background: none;
+    color: inherit;
+}
+#comments footer a {
+    color: inherit;
+}
+#comments .comment-metadata {
+    margin: 10px 0 0 ;
+}
 .widget{
     min-width: 29vh;
     border: solid 1px #ddd;

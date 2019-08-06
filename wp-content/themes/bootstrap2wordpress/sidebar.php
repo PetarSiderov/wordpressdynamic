@@ -11,6 +11,13 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
+<div id="sidebar-primary" class="sidebar">
+    <?php if ( is_active_sidebar( 'primary' ) ) : ?>
+        <?php dynamic_sidebar( 'primary' ); ?>
+    <?php else : ?>
+    <?php endif; ?>
+</div>
+
 
 <main id="secondary" class="widget-area">
 				<div class="widget" >
@@ -36,22 +43,27 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
                                     A-Z by author surname.
                         </p>
                     </div>
-                    <div class="widget">
-                        <h4> About bootstrap to wordpress</h4>
-                        <hr>
-                        <p ><a href="/">Blog post #1</a></p>
-                        <p ><a href="/">Blog post #2</a></p>
-                        <p ><a href="/">Blog post #3</a></p>
-                        <p ><a href="/">Blog post #4</a></p>
-                    </div>
 
-                    <div class="widget">
-                        <h4> About bootstrap to wordpress</h4>
-                        <hr>
-                        <p ><a href="/">Category #1</a></p>
-                        <p ><a href="/">Category #2</a></p>
-                        <p ><a href="/">Category #3</a></p>
-                        <p ><a href="/">Category #4</a></p>
-                        <p ><a href="/">Category #5</a></p>
-                    </div>
+                <?php
+                // wp-query to get all published posts without pagination
+                $allPostsWPQuery = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
+                <div class="widget"> 
+                    <?php if ( $allPostsWPQuery->have_posts() ) : ?>
+                        <h4> Blog post </h4><hr>
+                            <?php while ( $allPostsWPQuery->have_posts() ) : $allPostsWPQuery->the_post(); ?>
+                                <p>
+                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                </p>
+                            <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php else : ?>
+                        <p><?php _e( 'There no posts to display.' ); ?></p>
+                    <?php endif; ?> 
+                </div>   
+            <!-- listing all categories dinamicly -->             
+              <?php  $categories = get_categories();
+                foreach($categories as $category) {
+                    echo '<div class="widget"><h4>Categories</h4><hr><a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a></div>';
+                } 
+               ?>
 </main><!-- #secondary -->

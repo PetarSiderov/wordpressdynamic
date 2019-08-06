@@ -20,6 +20,7 @@ get_header();
 			<h1 id="BlogH1" class="page-title text-center"><?php the_title(); ?></h1>
 		</div>
 	</section>
+
 	<div class="container">
 	<div class="row" id="primary">
 	<main id="content" class="col-md-9" role="main">
@@ -49,16 +50,11 @@ get_header();
 						get_template_part( 'template-parts/content', get_post_type() );
 						
 					endwhile;
-
 					the_posts_navigation();
-
 				else :
-
 					get_template_part( 'template-parts/content', 'none' );
-
 				endif;
 				?>
-			
 			</main><!-- #main -->
 				<!-- ================================= SIDERBARR  -======= ---->
 				<main  class="col-sm-1"> 

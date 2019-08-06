@@ -69,6 +69,7 @@ $GLOBALS['_wp_deprecated_widgets_callbacks'] = array(
 	'wp_widget_pages',
 	'wp_widget_pages_control',
 	'wp_widget_calendar',
+	'wp_widget_blogpost',
 	'wp_widget_calendar_control',
 	'wp_widget_archives',
 	'wp_widget_archives_control',
@@ -1672,6 +1673,8 @@ function wp_widgets_init() {
 	register_widget( 'WP_Widget_Pages' );
 
 	register_widget( 'WP_Widget_Calendar' );
+
+	register_widget('WP_Widget_BlogPost');
 
 	register_widget( 'WP_Widget_Archives' );
 
