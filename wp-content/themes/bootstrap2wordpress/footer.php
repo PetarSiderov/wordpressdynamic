@@ -34,10 +34,10 @@
                 <nav>
                     <ul class="list-unstyled list-inline">
                     <li><a href="/">Home</li>
-                    <li ><a href="blog.php">Blog</li>
+                    <li ><a href="blog">Blog</li>
                     <li><a href="resources">Resources</li>
-                    <li ><a href="Contact.php">Contact</li>
-                    <li  class="signup-link"><a href="blog.php">Sign up now</li>
+                    <li ><a href="contact">Contact</li>
+                    <li  class="signup-link"><a href="contact">Sign up now</li>
                     </ul>
                 </nav>
              </div><!-- end-col  ---> 
