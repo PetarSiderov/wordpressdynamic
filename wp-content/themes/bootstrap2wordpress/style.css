@@ -847,6 +847,9 @@ i.ci {
     /* height: auto; */
     height: auto;
 }
+.widget-title{
+    font-size: 2vh;
+}
 .search-field{
     border: 3px solid #00B4CC;
     padding: 5px;

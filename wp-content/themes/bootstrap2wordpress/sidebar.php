@@ -11,68 +11,57 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
 ?>
-<div id="sidebar-primary" class="sidebar">
-    <?php if ( is_active_sidebar( 'primary' ) ) : ?>
-        <?php dynamic_sidebar( 'primary' ); ?>
-    <?php else : ?>
-    <?php endif; ?>
-</div>
+
+<?php
+/**
+ * The Sidebar containing the main widget area
+ *
+ * @package WordPress
+ * @subpackage Twenty_Fourteen
+ * @since Twenty Fourteen 1.0
+ */
+?>
+<div id="secondary">
+	
+	<?php if ( has_nav_menu( 'secondary' ) ) : ?>
+	<nav role="navigation" class="navigation site-navigation secondary-navigation">
+		<?php wp_nav_menu( array( 'theme_location' => 'secondary' ) ); ?>
+	</nav>
+	<?php endif; ?>
+
+	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
+	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	</div><!-- #primary-sidebar -->
+	<?php endif; ?>
+</div><!-- #secondary -->
 
 
-<main id="secondary" class="widget-area">
-				<div class="widget" >
-                        <h4>Join our Mailing List</h4>
-                        <hr>
-                        <p>Keep up-to-date with the latest news, and we'll <b>
-                            send you a discount for the course!
-                        </b>
-                        <br>
-                        <br>
-                        <button type="button" class="btn-success">Click here to subscribe</button>
-                    </div>
-                    <div class="widget">
-                        <form class="search-form">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        </form>
-                    </div>
-                    <div class="widget">
-                        <h4> About bootstrap to wordpress</h4>
-                        <hr>
-                        <p>Your Reference List should be located on a separate page at the end of your essay and titled: 
-                                    Reference List. It should include the details of all your in-text citations, arranged alphabetically
-                                    A-Z by author surname.
-                        </p>
-                      
-                    </div>
-                <div class="widget">
-                    <?php get_search_form(); ?>
-                </div>
-                   
-                <?php
-                // wp-query to get all published posts without pagination
-                $allPostsWPQuery = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
-                <div class="widget"> 
-                    <?php if ( $allPostsWPQuery->have_posts() ) : ?>
-                        <h4> Blog post </h4><hr>
-                            <?php while ( $allPostsWPQuery->have_posts() ) : $allPostsWPQuery->the_post(); ?>
-                                <p>
-                                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                </p>
-                            <?php endwhile; ?>
-                        <?php wp_reset_postdata(); ?>
-                    <?php else : ?>
-                        <p><?php _e( 'There no posts to display.' ); ?></p>
-                    <?php endif; ?> 
-                </div>   
-            <!-- listing all categories dinamicly --> 
-            <div class='widget'>    
-            <h4> Categories </h4>
-              <?php  $categories = get_categories();
-                foreach($categories as $category) { ?>
+<div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel"><i>Subscribe to our mailing list</h4>
+                </div> <!-- modal-header -->
+                <div class="modal-body">
+                    <p>Simply enter your name and email! As a thank you for joining us,
+                    we're going to give you our best-selling courses, <i>for free!</i></p>
+                    <form class="form-inline">
+                        <input type="text"id="usr" placeholder="Your first name"class="form-control">
+                        <input class="form-control" placeholder="and your email" type="text"  id="pwd">
+                        <button type="button" class="btn btn-danger">Subsciribe</button>
+                    </form>
+                    <hr>
                     <p>
-             <?php       echo '<a href="' . get_category_link($category->term_id) . '">' . $category->name . '</a>'; ?>
+                        By providing your email consent to receiving occasional promotional emails & newsletters.
+                        No Spam, Just good stuff. We respect your privacy & you may unsubscribe at any time.
                     </p>
-            <?php    } 
-               ?>
+                    </div>
+                </div>
             </div>
-</main><!-- #secondary -->
+        </div>
+    </div>
