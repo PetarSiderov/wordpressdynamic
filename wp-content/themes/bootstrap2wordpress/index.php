@@ -26,7 +26,7 @@ get_header();
 	<main id="content" class="col-md-9" role="main">
 
 		<div id="primary" class="content-area">
-			<main id="main" class="col-md-10 " >
+			<main id="main" class="col-md-10 ">
 				<?php
 				if ( have_posts() ) :
 
@@ -57,13 +57,14 @@ get_header();
 				?>
 			</main><!-- #main -->
 				<!-- ================================= SIDERBARR  -======= ---->
-				<main  class="col-sm-1"> 
+
+				<main class="col-md-2 col-sm-1"> 
 					<?php get_sidebar(); ?>
 				</main>
 		</div><!-- #primary -->		
 	</main><!-- content -->
 	</div><!-- primary -->
-	</div><!-- container -->
+</div><!-- container -->
 
 <?php
 
